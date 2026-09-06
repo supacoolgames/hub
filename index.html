@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+  SUPACOOLGAMES - the studio's front door. Self-contained, zero dependencies.
+  Sibling of the Y3K Lab and Y3K RC hubs; speaks the same A3K design language.
+  The wordmark is the canonical outlined SVG from y3k-brand, not a CSS
+  reconstruction: the mark has a vector definition with a filter chain and a
+  scanline pattern, and CSS would only approximate it. It carries no font
+  reference, so nothing here depends on a font being installed.
+  Bolo3K's card is href="#" until supacoolgames.com/bolo3k ships.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUPACOOLGAMES - retro-futuristic games with craft and a little neon</title>
+<meta name="description" content="SUPACOOLGAMES is a Y3K Lab game dev studio. We make retro-futuristic games with craft and a little neon.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.svg">
+<link rel="mask-icon" href="favicon.svg" color="#ff5fff">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SUPACOOLGAMES">
+<meta property="og:description" content="A Y3K Lab game dev studio. We make retro-futuristic games with craft and a little neon.">
+<meta property="og:url" content="https://supacoolgames.com">
+<meta property="og:image" content="https://supacoolgames.com/supacoolgames.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SUPACOOLGAMES">
+<meta name="twitter:description" content="A Y3K Lab game dev studio. We make retro-futuristic games with craft and a little neon.">
+<meta name="theme-color" content="#0a0a12">
+<style>
+  /* The A3K palette. Look reference only; the runtime-canonical values live in
+     Phos4's y3k.sh, and the identity narrative in y3k-brand's IDENTITY.md. */
+  :root {
+    --magenta: #ff5fff;
+    --rose:    #ff5fd7;
+    --pink:    #d75fd7;
+    --purple:  #af5fff;
+    --indigo:  #875fff;
+    --blue:    #5fafff;
+    --cyan:    #00d7ff;
+    --brtcyan: #00ffff;
+
+    --bg:    #0a0a12;
+    --panel: #12121f;
+    --ink:   #e8e8f4;
+    --dim:   #8a8aa6;
+    --rail:  #2a2a3e;
+    --ok:    #7ddc7d;
+    --warn:  #ffcf6a;
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(900px 500px at 8% -8%, color-mix(in srgb, var(--magenta) 14%, transparent), transparent 55%),
+      radial-gradient(900px 500px at 100% 108%, color-mix(in srgb, var(--cyan) 11%, transparent), transparent 55%),
+      radial-gradient(1200px 600px at 50% -10%, #170e2b 0%, transparent 60%),
+      var(--bg);
+    color: var(--ink);
+    font: 16px/1.65 ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6vh 24px 48px;
+  }
+  /* The floor grid, faded out well before it reaches the cards. A little neon. */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      repeating-linear-gradient(to right, color-mix(in srgb, var(--cyan) 7%, transparent) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(to bottom, color-mix(in srgb, var(--cyan) 7%, transparent) 0 1px, transparent 1px 64px);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 42%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 42%);
+  }
+
+  /* ── The mark ───────────────────────────────────────────────────────────
+     supacoolgames.svg here is the brand catalog's transparent mark with a
+     tighter viewBox, so the artboard's empty margins do not become page
+     whitespace. Geometry, gradient and filter are untouched; the canonical
+     1000x1000 file stays in y3k-brand. */
+  .markwrap { width: min(430px, 84vw); }
+  .markwrap img { display: block; width: 100%; height: auto; }
+
+  .tagline {
+    margin: 26px 0 0;
+    max-width: 46ch;
+    text-align: center;
+    color: var(--ink);
+    font-size: 1.02rem;
+  }
+  .tagline .lede { color: var(--dim); }
+
+  .label {
+    margin: 54px 0 14px;
+    font-size: .72rem; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .grid {
+    display: grid; gap: 18px; width: 100%; max-width: 760px;
+    /* min(320px, 100%) not 320px: a bare minimum would force a column wider
+       than a 390px phone once the card's and body's padding are added, and
+       headless Chrome cannot reproduce it - it clamps the viewport to 500px. */
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  }
+
+  .card {
+    position: relative; display: block; padding: 22px 22px 18px;
+    background: var(--panel);
+    border: 1px solid var(--rail); border-radius: 12px;
+    text-decoration: none; color: inherit;
+    transition: border-color .18s ease, transform .18s ease;
+    overflow: hidden;
+  }
+  /* One ramp rule crowns each card - the single gradient moment, per A3K. */
+  .card::before {
+    content: ""; position: absolute; inset: 0 0 auto; height: 2px;
+    background: linear-gradient(90deg, var(--stop), transparent 82%);
+  }
+  .card.live:hover, .card.live:focus-visible {
+    border-color: var(--stop); transform: translateY(-2px);
+  }
+  .card.soon { cursor: default; }
+  .card h3 { margin: 0 0 8px; font-size: 1.08rem; }
+  .card h3 .sub { color: var(--dim); font-weight: 400; font-size: .82rem; }
+  .card p { margin: 0; color: var(--dim); font-size: .9rem; }
+  .meta { margin-top: 14px; font-size: .78rem; }
+  .play { color: var(--stop); }
+  .arw { transition: transform .18s ease; display: inline-block; }
+  .card.live:hover .arw { transform: translateX(3px); }
+  .chip {
+    color: var(--warn); border: 1px solid color-mix(in srgb, var(--warn) 40%, transparent);
+    border-radius: 999px; padding: 2px 9px; font-size: .7rem;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+
+  footer {
+    margin-top: 64px; text-align: center; color: var(--dim); font-size: .8rem;
+  }
+  footer a { color: var(--blue); }
+  footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, .arw { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="markwrap">
+    <img src="supacoolgames.svg" width="880" height="590" alt="SUPACOOLGAMES">
+  </div>
+
+  <p class="tagline">
+    <span class="lede">A Y3K Lab game dev studio.</span>
+    We make retro-futuristic games with craft and a little neon.
+  </p>
+
+  <div class="label">Games</div>
+
+  <div class="grid">
+
+    <a class="card live" href="https://bolo2k.com" style="--stop: var(--purple);">
+      <h3>Bolo2K <span class="sub">| browser-native</span></h3>
+      <p>A faithful remake of Stuart Cheshire's Bolo, the multiplayer tank game
+         for the classic Macintosh. Claim bases, build pillboxes, hold the
+         island. It runs in a browser, with nothing to install.</p>
+      <div class="meta"><span class="play">play <span class="arw">-&gt;</span></span></div>
+    </a>
+
+    <a class="card soon" href="#" style="--stop: var(--cyan);">
+      <h3>Bolo3K <span class="sub">| on Roblox</span></h3>
+      <p>The successor, rebuilt in 3D. Sixteen players on one island, the same
+         bases and pillboxes and mines, a round you can win. It is in build now
+         and plays on PC, mobile and console.</p>
+      <div class="meta"><span class="chip">in build</span></div>
+    </a>
+
+  </div>
+
+  <footer>
+    <p>Part of <a href="https://y3klab.com">Y3K Lab</a> &middot; &copy; 1970-3000 SUPACOOLGAMES</p>
+  </footer>
+
+  <script>
+    // The Bolo3K card has no destination yet; stop it jumping to the top.
+    for (const a of document.querySelectorAll('.card[href="#"]'))
+      a.addEventListener('click', e => e.preventDefault());
+  </script>
+
+</body>
+</html>

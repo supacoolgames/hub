@@ -1,0 +1,9 @@
+.DS_Store
+
+# Project docs stay OUT of this PUBLIC repo. Cloudflare publishes the repo root,
+# so every tracked file is served at supacoolgames.com - GitHub visibility governs
+# who can read the repo, not what the host serves. The docs live in the private
+# half of the pair (y3k-brand holds the brand book).
+CLAUDE.md
+.system/
+.claude/
