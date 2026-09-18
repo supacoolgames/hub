@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--
+  Bolo3K - the explainer. A section of supacoolgames.com.
+  Body copy is the science-teacher voice (y3k-brand IDENTITY.md section 9):
+  what a thing IS, what it MEANS, what you can DO. The ONE exception is the
+  pull-quote in section 04, which is the storefront register ("neon and
+  cryptic") in the slot the brand book allows it.
+  Every rule and number here is sourced from the bolo3k project's
+  rules/rules.md, which cites each one to the constants and checks it with a
+  test. Nothing on this page is invented; if a rule changes there, change it
+  here. Bolo3K has no logo of its own yet, so the title is text.
+  No download and no play link: the game is in build and not published.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bolo3K - island tank warfare, rebuilt in 3D</title>
+<meta name="description" content="Bolo3K is Bolo rebuilt in 3D as a Roblox experience: sixteen players on one island, bases, pillboxes, mines, and alliances that are pacts rather than teams.">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../favicon.svg" color="#ff5fff">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bolo3K">
+<meta property="og:description" content="Sixteen players on one island. Bases, pillboxes, mines, and alliances that are pacts rather than teams.">
+<meta property="og:url" content="https://supacoolgames.com/bolo3k/">
+<meta name="theme-color" content="#0a0a12">
+<style>
+  :root {
+    --magenta:#ff5fff; --rose:#ff5fd7; --pink:#d75fd7; --purple:#af5fff;
+    --indigo:#875fff; --blue:#5fafff; --cyan:#00d7ff; --brtcyan:#00ffff;
+    --bg:#0a0a12; --panel:#12121f; --ink:#e8e8f4; --dim:#8a8aa6; --rail:#2a2a3e;
+    --ok:#7ddc7d; --warn:#ffcf6a;
+    --ramp: linear-gradient(90deg, var(--magenta), var(--purple), var(--indigo), var(--blue), var(--brtcyan));
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; }
+  body {
+    margin:0; background:
+      radial-gradient(900px 500px at 8% -8%, color-mix(in srgb, var(--magenta) 12%, transparent), transparent 55%),
+      radial-gradient(900px 500px at 100% 108%, color-mix(in srgb, var(--cyan) 10%, transparent), transparent 55%),
+      var(--bg);
+    color: var(--ink);
+    font: 16px/1.7 ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    padding: 0 24px 64px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  .home {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin: 28px 0 0; padding: 6px 0;
+    color: var(--dim); text-decoration: none; font-size: .8rem;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+  .home img { width: 26px; height: 26px; display: block; }
+  .home:hover { color: var(--ink); }
+
+  h1 {
+    margin: 40px 0 0; font-size: clamp(2.6rem, 9vw, 4.2rem); line-height: 1;
+    letter-spacing: -.02em;
+    background: var(--ramp); -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .sub { margin: 20px 0 0; font-size: 1.06rem; max-width: 48ch; }
+  .status {
+    margin: 22px 0 0; font-size: .82rem; color: var(--dim);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .chip {
+    color: var(--warn); border: 1px solid color-mix(in srgb, var(--warn) 40%, transparent);
+    border-radius: 999px; padding: 2px 10px; font-size: .7rem;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+  .rule { height: 2px; background: var(--ramp); margin: 44px 0 0; border-radius: 2px; }
+
+  h2 {
+    margin: 52px 0 0; font-size: 1.16rem; letter-spacing: -.01em;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  h2 .n {
+    color: var(--dim); font-size: .78rem; letter-spacing: .2em;
+    border: 1px solid var(--rail); border-radius: 4px; padding: 2px 7px;
+  }
+  p { margin: 16px 0 0; }
+  .dim { color: var(--dim); }
+  strong { color: var(--ink); font-weight: 700; }
+  ul { margin: 16px 0 0; padding-left: 20px; }
+  li { margin: 9px 0 0; }
+  li::marker { color: var(--purple); }
+  a { color: var(--blue); }
+
+  /* The one line on this page in the storefront register. */
+  .stamp {
+    margin: 30px 0 0; padding: 20px 22px;
+    border-left: 2px solid var(--cyan); background: var(--panel);
+    border-radius: 0 10px 10px 0;
+    font-size: 1.12rem; color: var(--ink);
+  }
+
+  .facts {
+    margin: 22px 0 0; width: 100%; border-collapse: collapse; font-size: .9rem;
+  }
+  .facts th, .facts td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rail); vertical-align: top; }
+  .facts th {
+    color: var(--dim); font-weight: 400; font-size: .72rem;
+    letter-spacing: .16em; text-transform: uppercase; white-space: nowrap;
+  }
+  .scroll { overflow-x: auto; }
+
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rail); color: var(--dim); font-size: .82rem; }
+  footer p { margin: 8px 0 0; }
+</style>
+</head>
+<body>
+<article class="wrap">
+
+  <a class="home" href="/"><img src="../favicon.svg" alt="">SUPACOOLGAMES</a>
+
+  <h1>Bolo3K</h1>
+  <p class="sub">Take bases with your tank. Take pillboxes with your little green
+     man. Take the island.</p>
+  <p class="status"><span class="chip">in build</span>
+     <span>A Roblox experience. Not published yet.</span></p>
+
+  <div class="rule"></div>
+
+  <h2><span class="n">01</span> What Bolo3K is</h2>
+  <p>Bolo3K is a rebuild of <strong>Bolo</strong>, Stuart Cheshire's 1987
+     multiplayer tank game for the Macintosh, as a native Roblox experience.
+     Sixteen players share one island. Each drives a tank and commands a little
+     green man who gets out and builds.</p>
+  <p>It is not a port. <a href="https://bolo2k.com">Bolo2K</a> is the faithful
+     remake, and it runs in a browser today. Bolo3K is the successor: the same
+     island and the same rules, in block-built 3D under a top-down camera, on
+     one codebase across PC, mobile and console.</p>
+
+  <h2><span class="n">02</span> The island</h2>
+  <p>The island is 256 tiles square, and a tile is 24 studs in Roblox. Every
+     tile is one kind of ground, and the ground decides what you can do on it:
+     roads are fast, swamp is slow, forest hides you, deep water stops you
+     unless you are on a boat.</p>
+  <p>Three things stand on the ground and all three change hands.
+     <strong>Bases</strong> refuel a tank parked on one, handing over armor,
+     shells and mines out of their own stock, so refueling is a transfer and
+     not a gift. <strong>Pillboxes</strong> shoot at anyone who is not their
+     owner or their owner's ally. <strong>Mines</strong> sit hidden in the
+     ground until something drives over them.</p>
+  <ul>
+    <li><strong>Your tank takes bases.</strong> Shoot a base until its armor is
+        low enough, then drive onto it.</li>
+    <li><strong>Your little green man takes pillboxes</strong>, and builds the
+        roads, walls and boats, farms trees for materials, and lays mines. He
+        walks the whole way, however far you send him, and he is defenseless
+        while he works.</li>
+  </ul>
+
+  <h2><span class="n">03</span> How a round is won</h2>
+  <p>A round ends the moment every base on the island belongs to one player or
+     to that player's allies. A single neutral base stops anyone from holding
+     the island. If nobody has taken it after twenty minutes, the clock decides
+     it on bases held.</p>
+  <p>The winner is <strong>a player together with their allies</strong> - and
+     an ally holding no base at the end is credited with nothing. Then the
+     island resets to the map its author drew, forests, walls, bases and
+     pillboxes back where they started.</p>
+  <p class="dim">Twenty minutes is a first setting. It is the one number in the
+     game with no source behind it, because Bolo has no round at all, and it
+     will be tuned in playtests.</p>
+
+  <h2><span class="n">04</span> Alliances are pacts, not teams</h2>
+  <p>Nobody is assigned a side. <strong>Two players are allied when each has
+     asked for the other</strong>; a request on its own is nothing. An alliance
+     is a player plus everyone they hold a pact with, and that is the unit that
+     wins a round.</p>
+
+  <p class="stamp">Your ally's ally is not your ally.</p>
+
+  <p>A pact is not transitive, and the game means it: one player allied with
+     two who are not allied with each other is a single alliance seen from the
+     middle and two separate ones seen from either edge. Who has won is worked
+     out from each base owner's own side of the table.</p>
+  <p>What a pact gets you, and what it costs:</p>
+  <ul>
+    <li>Allied pillboxes <strong>hold their fire</strong>, and open up again
+        the moment the pact ends.</li>
+    <li>You <strong>refuel at an ally's bases</strong>, and the base never
+        changes hands for it.</li>
+    <li>You <strong>see the mines your ally laid after the pact formed</strong>,
+        and only those. The tick a pact became mutual is stamped once and never
+        refreshed, so a pair cannot break and remake a pact to uncover each
+        other's older mines. When the pact ends, those mines go dark again.</li>
+    <li><strong>Pacts outlive the round.</strong> The island resets; who you
+        trust does not.</li>
+  </ul>
+  <p>Leaving clears only the leaver's own request. The other side goes on
+     wanting the alliance, and the pact is remade the instant the leaver asks
+     again.</p>
+
+  <h2><span class="n">05</span> What is different from Bolo</h2>
+  <p>Most of Cheshire's rules are kept, measured against a reference
+     implementation rule by rule. These are the deliberate changes:</p>
+  <div class="scroll">
+  <table class="facts">
+    <tr><th>Driving</th><td>Rebuilt. Bolo's 1987 motion model travels on a 16-point compass and feels it. Bolo3K's tank turns and drives the way you expect, with cruise control and reverse as options you can switch on.</td></tr>
+    <tr><th>The round</th><td>New. Bolo runs forever; Bolo3K plays a round, on an island that persists between rounds.</td></tr>
+    <tr><th>Mines</th><td>A mine sets off the mines on its four sides a fifth of a second later, and each of those does the same.</td></tr>
+    <tr><th>Rough ground</th><td>A tank turns at four tenths of its speed on rough ground, so terrain costs you maneuver as well as pace.</td></tr>
+    <tr><th>Forests</th><td>Cheshire's self-adjusting rule is back: the more players in the game, the faster forests regrow, because more players consume more building material.</td></tr>
+  </table>
+  </div>
+
+  <h2><span class="n">06</span> Where it is now</h2>
+  <p>The rules simulation is written and tested, the tank handling is settled,
+     a full game reaches every player's screen, and each client is told only
+     what its player is allowed to see. Block art and recorded sound are in
+     hand. What remains is playtesting, the Roblox integration, and launch.</p>
+  <p class="dim">There is nothing to download and nothing to play yet. This
+     page will carry the link when there is one.</p>
+
+  <footer>
+    <p>Bolo is Stuart Cheshire's. Bolo3K is an original build: its art, sound
+       and code are its own, and nothing is taken from WinBolo or from
+       Cheshire's autopilot.</p>
+    <p><a href="/">SUPACOOLGAMES</a> &middot;
+       <a href="https://bolo2k.com">Bolo2K</a> &middot;
+       <a href="https://y3klab.com">Y3K Lab</a></p>
+  </footer>
+
+</article>
+</body>
+</html>

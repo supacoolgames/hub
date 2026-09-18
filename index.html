@@ -6,7 +6,6 @@
   reconstruction: the mark has a vector definition with a filter chain and a
   scanline pattern, and CSS would only approximate it. It carries no font
   reference, so nothing here depends on a font being installed.
-  Bolo3K's card is href="#" until supacoolgames.com/bolo3k ships.
 -->
 <html lang="en">
 <head>
@@ -172,12 +171,13 @@
       <div class="meta"><span class="play">play <span class="arw">-&gt;</span></span></div>
     </a>
 
-    <a class="card soon" href="#" style="--stop: var(--cyan);">
+    <a class="card live" href="/bolo3k/" style="--stop: var(--cyan);">
       <h3>Bolo3K <span class="sub">| on Roblox</span></h3>
       <p>The successor, rebuilt in 3D. Sixteen players on one island, the same
          bases and pillboxes and mines, a round you can win. It is in build now
          and plays on PC, mobile and console.</p>
-      <div class="meta"><span class="chip">in build</span></div>
+      <div class="meta"><span class="chip">in build</span>
+           <span class="play">read <span class="arw">-&gt;</span></span></div>
     </a>
 
   </div>
@@ -185,12 +185,6 @@
   <footer>
     <p>Part of <a href="https://y3klab.com">Y3K Lab</a> &middot; &copy; 1970-3000 SUPACOOLGAMES</p>
   </footer>
-
-  <script>
-    // The Bolo3K card has no destination yet; stop it jumping to the top.
-    for (const a of document.querySelectorAll('.card[href="#"]'))
-      a.addEventListener('click', e => e.preventDefault());
-  </script>
 
 </body>
 </html>
