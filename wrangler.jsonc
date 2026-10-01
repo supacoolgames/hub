@@ -1,0 +1,25 @@
+{
+  // SUPACOOLGAMES hub - supacoolgames.com. A hand-authored static site with no
+  // build step; this file exists only so `npx wrangler deploy` knows what to
+  // serve. It lives in the repo rather than in dashboard fields deliberately:
+  // a clicked setting is invisible in a diff and carries no reason with it.
+  "name": "supacoolgames-hub",
+  "compatibility_date": "2026-09-30",
+
+  "assets": {
+    // Root-publish: every tracked file is served. The deny-list is
+    // .assetsignore, which also keeps the build container's own .git out.
+    "directory": "./",
+
+    // Serve /bolo3k directly with a 200 rather than 307-redirecting it to
+    // /bolo3k/. The default (auto-trailing-slash) makes the slashed form
+    // canonical, which silently breaks any URL promised without one. Set
+    // explicitly so the behaviour is a decision, not an inherited default.
+    "html_handling": "drop-trailing-slash",
+
+    // An unknown path returns a real 404 rather than falling back to
+    // index.html. A fallback would make every probe of a missing file answer
+    // 200 with HTML, which is exactly how a .git leak got misread once.
+    "not_found_handling": "none"
+  }
+}

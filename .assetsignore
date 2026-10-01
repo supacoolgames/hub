@@ -3,3 +3,6 @@
 # .git/logs/HEAD are served publicly (found 2026-07-24 on two other Y3K faces).
 .git
 .gitignore
+
+# the deploy config is not page content
+wrangler.jsonc
