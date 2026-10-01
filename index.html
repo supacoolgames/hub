@@ -2,10 +2,10 @@
 <!--
   SUPACOOLGAMES - the studio's front door. Self-contained, zero dependencies.
   Sibling of the Y3K Lab and Y3K RC hubs; speaks the same A3K design language.
-  The wordmark is the canonical outlined SVG from y3k-brand, not a CSS
-  reconstruction: the mark has a vector definition with a filter chain and a
-  scanline pattern, and CSS would only approximate it. It carries no font
-  reference, so nothing here depends on a font being installed.
+  The wordmark is the accepted custom lettering from y3k-brand, not a CSS
+  reconstruction and not the older Arial Black cut: the letters are drawn
+  outlines, so nothing here depends on a font being installed. The favicon is
+  the matching custom SCG monogram.
 -->
 <html lang="en">
 <head>
@@ -77,11 +77,12 @@
   }
 
   /* ── The mark ───────────────────────────────────────────────────────────
-     supacoolgames.svg here is the brand catalog's transparent mark with a
-     tighter viewBox, so the artboard's empty margins do not become page
-     whitespace. Geometry, gradient and filter are untouched; the canonical
-     1000x1000 file stays in y3k-brand. */
-  .markwrap { width: min(430px, 84vw); }
+     The accepted custom lettering (y3k-brand/output/supacoolgames-refined-logos,
+     the colour CRT cut: magenta-to-cyan field, 30% black scanlines, for dark
+     backgrounds). Outlined vector with no font dependency, transparent, and a
+     square 900x900 artboard the letters already fill - so no crop is wanted
+     here, unlike the older loose-spaced mark this replaced. */
+  .markwrap { width: min(340px, 74vw); }
   .markwrap img { display: block; width: 100%; height: auto; }
 
   .tagline {
@@ -151,7 +152,7 @@
 <body>
 
   <div class="markwrap">
-    <img src="supacoolgames.svg" width="880" height="590" alt="SUPACOOLGAMES">
+    <img src="supacoolgames.svg" width="900" height="900" alt="SUPACOOLGAMES">
   </div>
 
   <p class="tagline">
