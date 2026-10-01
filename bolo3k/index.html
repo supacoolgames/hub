@@ -10,6 +10,10 @@
   test. Nothing on this page is invented; if a rule changes there, change it
   here. Bolo3K has no logo of its own yet, so the title is text.
   No download and no play link: the game is in build and not published.
+  Asset paths here are ABSOLUTE on purpose. This page is served at /bolo3k with
+  no trailing slash (html_handling drop-trailing-slash), so a relative src
+  resolves against / and not against /bolo3k/ - every image 404s silently while
+  a direct request for the same file returns 200. Do not make them relative.
 -->
 <html lang="en">
 <head>
@@ -18,8 +22,8 @@
 <title>Bolo3K - island tank warfare, rebuilt in 3D</title>
 <meta name="description" content="Bolo3K is Bolo rebuilt in 3D as a Roblox experience: sixteen players on one island, bases, pillboxes, mines, and alliances that are pacts rather than teams.">
 
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="mask-icon" href="../favicon.svg" color="#ff5fff">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="/favicon.svg" color="#ff5fff">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bolo3K">
 <meta property="og:description" content="Sixteen players on one island. Bases, pillboxes, mines, and alliances that are pacts rather than teams.">
@@ -143,7 +147,7 @@
 <body>
 <article class="wrap">
 
-  <a class="home" href="/"><img src="../favicon.svg" alt="">SUPACOOLGAMES</a>
+  <a class="home" href="/"><img src="/favicon.svg" alt="">SUPACOOLGAMES</a>
 
   <h1>Bolo3K</h1>
   <p class="sub">Take bases with your tank. Take pillboxes with your little green
@@ -175,11 +179,11 @@
      owner or their owner's ally. <strong>Mines</strong> sit hidden in the
      ground until something drives over them.</p>
   <div class="pieces">
-    <div class="piece"><div class="box"><img src="art/tank.png" alt="A block-built tank"></div><span>tank</span></div>
-    <div class="piece"><div class="box"><img src="art/man.png" alt="The little green man"></div><span>the man</span></div>
-    <div class="piece"><div class="box"><img src="art/pillbox.png" alt="A pillbox"></div><span>pillbox</span></div>
-    <div class="piece"><div class="box"><img src="art/base.png" alt="A refueling base with its flag"></div><span>base</span></div>
-    <div class="piece"><div class="box"><img src="art/mine.png" alt="A mine in the ground"></div><span>mine</span></div>
+    <div class="piece"><div class="box"><img src="/bolo3k/art/tank.png" alt="A block-built tank"></div><span>tank</span></div>
+    <div class="piece"><div class="box"><img src="/bolo3k/art/man.png" alt="The little green man"></div><span>the man</span></div>
+    <div class="piece"><div class="box"><img src="/bolo3k/art/pillbox.png" alt="A pillbox"></div><span>pillbox</span></div>
+    <div class="piece"><div class="box"><img src="/bolo3k/art/base.png" alt="A refueling base with its flag"></div><span>base</span></div>
+    <div class="piece"><div class="box"><img src="/bolo3k/art/mine.png" alt="A mine in the ground"></div><span>mine</span></div>
   </div>
   <p class="dim">The game's own art, at the camera's angle. Ownership is a color:
      these are yours.</p>
@@ -254,7 +258,7 @@
      what its player is allowed to see. Block art and recorded sound are in
      hand. What remains is playtesting, the Roblox integration, and launch.</p>
   <figure>
-    <img src="art/first-drive.jpg" alt="A tank on a road, five shells in the air toward a pillbox">
+    <img src="/bolo3k/art/first-drive.jpg" alt="A tank on a road, five shells in the air toward a pillbox">
     <figcaption>The first night it ran, 1 September 2026: a tank on a road with
       five shells in the air. The terrain here is placeholder - the block art
       above is the current set, and the island has been rebuilt since.</figcaption>
