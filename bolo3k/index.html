@@ -107,6 +107,35 @@
   }
   .scroll { overflow-x: auto; }
 
+  /* The game's own block art, cropped from the builders' contact sheet that
+     `lune run sheet` renders in the bolo3k project. Same art the game uses, so
+     the page cannot drift from it by accident - but it is a COPY, so a change
+     to the builders means re-cropping. The sheet's ground is the same #0a0a12
+     as this page, and it is keyed to transparent here. */
+  .pieces {
+    display: grid; gap: 20px; margin: 28px 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(min(104px, 100%), 1fr));
+  }
+  .piece { text-align: center; }
+  /* A fixed-height box with the art sitting on its floor. Sizing by WIDTH would
+     scale each crop by its own aspect ratio - the man is tall and narrow, so he
+     came out twice the height of the tank and put every label on a different
+     baseline. */
+  .piece .box {
+    height: 108px; display: flex; align-items: flex-end; justify-content: center;
+  }
+  .piece img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
+  .piece span {
+    display: block; margin-top: 10px; font-size: .68rem; color: var(--dim);
+    letter-spacing: .14em; text-transform: uppercase;
+  }
+  figure { margin: 30px 0 0; }
+  figure img {
+    display: block; width: 100%; height: auto;
+    border: 1px solid var(--rail); border-radius: 10px;
+  }
+  figcaption { margin-top: 12px; font-size: .8rem; color: var(--dim); }
+
   footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rail); color: var(--dim); font-size: .82rem; }
   footer p { margin: 8px 0 0; }
 </style>
@@ -145,6 +174,16 @@
      not a gift. <strong>Pillboxes</strong> shoot at anyone who is not their
      owner or their owner's ally. <strong>Mines</strong> sit hidden in the
      ground until something drives over them.</p>
+  <div class="pieces">
+    <div class="piece"><div class="box"><img src="art/tank.png" alt="A block-built tank"></div><span>tank</span></div>
+    <div class="piece"><div class="box"><img src="art/man.png" alt="The little green man"></div><span>the man</span></div>
+    <div class="piece"><div class="box"><img src="art/pillbox.png" alt="A pillbox"></div><span>pillbox</span></div>
+    <div class="piece"><div class="box"><img src="art/base.png" alt="A refueling base with its flag"></div><span>base</span></div>
+    <div class="piece"><div class="box"><img src="art/mine.png" alt="A mine in the ground"></div><span>mine</span></div>
+  </div>
+  <p class="dim">The game's own art, at the camera's angle. Ownership is a color:
+     these are yours.</p>
+
   <ul>
     <li><strong>Your tank takes bases.</strong> Shoot a base until its armor is
         low enough, then drive onto it.</li>
@@ -214,6 +253,13 @@
      a full game reaches every player's screen, and each client is told only
      what its player is allowed to see. Block art and recorded sound are in
      hand. What remains is playtesting, the Roblox integration, and launch.</p>
+  <figure>
+    <img src="art/first-drive.jpg" alt="A tank on a road, five shells in the air toward a pillbox">
+    <figcaption>The first night it ran, 1 September 2026: a tank on a road with
+      five shells in the air. The terrain here is placeholder - the block art
+      above is the current set, and the island has been rebuilt since.</figcaption>
+  </figure>
+
   <p class="dim">There is nothing to download and nothing to play yet. This
      page will carry the link when there is one.</p>
 
